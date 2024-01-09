@@ -14,7 +14,7 @@ g_st = sparse(g); v_st = v;
 plot(a,v);
 plot(a,g,a,g0);
 xlim([amin 1]);
-r_st = r;
+r_st = r;                      %% page 11 step 1 Given r(t),vsolve ..... 
 
 clear r Delta;
 
@@ -55,6 +55,7 @@ for it=1:maxit
     
     V = v_st;
     
+    % step 1 compute the time path of v
     for n=N:-1:1
         v(:,:,n)=V;
         % forward difference
@@ -120,6 +121,8 @@ for it=1:maxit
     
     %plot(a,v(:,:,1),a,v(:,:,N))
     
+    % step 2 and step 3
+    % compute g. see page 12 eq.27 and page 13  
     gg{1}=gg0;
     for n=1:N
         AT=A_t{n}';
@@ -134,6 +137,8 @@ for it=1:maxit
     dS_it(:,it)=dS;
     SS_it(:,it)=SS;
     
+
+    % step 4 update r
     %Update the interest rate to reduce aggregate saving
     rnew = r_t - xi'.*dS;
     

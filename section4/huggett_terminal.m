@@ -162,11 +162,11 @@ if S(ir)>crit_S
     disp('Excess Supply')
     rmax = r;
     r = 0.5*(r+rmin);
-elseif S(ir)<-crit_S;
+elseif S(ir)<-crit_S
     disp('Excess Demand')
     rmin = r;
     r = 0.5*(r+rmax);
-elseif abs(S(ir))<crit_S;
+elseif abs(S(ir))<crit_S
     display('Equilibrium Found, Interest rate =')
     disp(r)
     break
